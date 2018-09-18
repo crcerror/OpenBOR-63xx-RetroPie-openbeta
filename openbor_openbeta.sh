@@ -8,6 +8,9 @@ function drawline() {
 echo "-------------------------------------------------------------------------"
 }
 
+# Called with argument?
+[[ -z $VERSION ]] && echo "Not called with argument!" && exit
+
 # Install dependencies
 echo; echo -e "\t\tGetting dependecies";drawline
 sudo apt install libsdl2-gfx-dev libvorbisidec-dev libvpx-dev
