@@ -41,7 +41,7 @@ drawline; sleep 5
 # Try to install sh file into ports section
 echo; echo -e "\t\tCreating script in ports section"; drawline
 if [[ -d $PORTS_DIR ]]; then
-    echo "$HOME/openbor_beta/OpenBOR" > "${PORTS_DIR}/OpenBOR OPENBETA.sh"
+    echo "${INST_DIR}/openbor_beta/OpenBOR" > "${PORTS_DIR}/OpenBOR OPENBETA.sh"
     echo "Successfully installed script file to ports dir"
     echo "Please restart ES to make it visible"
     echo "Have much fun with: OpenBOR BETA $VERSION"
