@@ -52,3 +52,6 @@ else
     echo; echo "Failed to create bash script to $PORTS_DIR"
 fi
 drawline; sleep 3
+
+# CleanUp
+rm -f "$0"
