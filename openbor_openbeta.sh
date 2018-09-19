@@ -29,7 +29,7 @@ drawline; sleep 2
 # Try to link to PAK-files
 echo; echo -e "\t\tLink to PAK files"; drawline
 if [[ -d $PAK_DIR ]]; then
-    ln -s "${PAK_DIR}/" ./openbor_openbeta/Paks
+    ln -s "${PAK_DIR}" ./openbor_openbeta/Paks
     echo "Successfully linked Pak dir"
     echo "$VERSION is making you happy"
 else
@@ -48,4 +48,4 @@ if [[ -d $PORTS_DIR ]]; then
 else
     echo; echo "Failed to create bash script to $PORTS_DIR"
 fi
-drawline; sleep 5
+drawline; sleep 3
