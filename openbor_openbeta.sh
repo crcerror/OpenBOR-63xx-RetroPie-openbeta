@@ -29,7 +29,8 @@ drawline; sleep 2
 # Try to link to PAK-files
 echo; echo -e "\t\tLink to PAK files"; drawline
 if [[ -d ./openbor_openbeta/Paks ]]; then
-    echo "PAK File already present!"
+    echo "PAK folder is already present!"
+    echo "$VERSION takes no action now!"
 elif [[ -d $PAK_DIR ]]; then
     ln -s "${PAK_DIR}" ./openbor_openbeta/Paks
     echo "Successfully linked Pak dir"
@@ -43,7 +44,7 @@ drawline; sleep 5
 # Try to install sh file into ports section
 echo; echo -e "\t\tCreating script in ports section"; drawline
 if [[ -d $PORTS_DIR ]]; then
-    echo "cd $INST_DIR; ${INST_DIR}/openbor_openbeta/OpenBOR" > "${PORTS_DIR}/OpenBOR OPENBETA.sh"
+    echo "cd ${INST_DIR}/openbor_openbeta; ./OpenBOR" > "${PORTS_DIR}/OpenBOR OPENBETA.sh"
     echo "Successfully installed script file to ports dir"
     echo "Please restart ES to make it visible"
     echo "Have much fun with: OpenBOR BETA $VERSION"
