@@ -1,7 +1,7 @@
 #!/bin/bash
 readonly VERSION="$1"
 readonly INST_DIR="$HOME"
-readonly PAK_DIR="$HOME/RetroPie/roms/ports/openbor/Paks"
+readonly PAK_DIR="$HOME/RetroPie/roms/ports/openbor"
 readonly PORTS_DIR="$HOME/RetroPie/roms/ports"
 
 function drawline() {
