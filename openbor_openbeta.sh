@@ -13,7 +13,7 @@ echo "-------------------------------------------------------------------------"
 
 # Install dependencies
 echo; echo -e "\t\tGetting dependecies";drawline
-sudo apt install libsdl2-gfx-dev libvorbisidec-dev libvpx-dev
+sudo apt install libsdl2-gfx-dev libvorbisidec-dev libvpx-dev libogg-dev libsdl2-gfx-1.0-0 libvorbisidec1
 drawline; sleep 5
 
 # Get Beta-files
