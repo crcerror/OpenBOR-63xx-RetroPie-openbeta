@@ -66,7 +66,7 @@ if [[ \${#darray[@]} -gt 0 ]]; then
     [[ \$choices ]] || (joy2keyStop; exit)
 fi
 joy2keyStop; sleep 0.5
-"opt/retropie/supplementary/runcommand/runcommand.sh" 0 _PORT_ "openbor" "\$choices"
+"/opt/retropie/supplementary/runcommand/runcommand.sh" 0 _PORT_ "openbor" "\$choices"
 _EOF_
 
 
