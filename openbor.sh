@@ -50,8 +50,8 @@ function configure_openbor() {
 #!/bin/bash
 readonly JOY2KEY_SCRIPT="\$HOME/RetroPie-Setup/scriptmodules/helpers.sh"
 readonly OPENBOR_ROMDIR="$romdir/ports/$md_id"
-[[ -e \$JOY2KEY_SCRIPT ]] || (cd $md_inst; ./OpenBOR; exit 1)
-sudo pkill -f joy2key
+[[ -e \$JOY2KEY_SCRIPT ]] || (cd $md_inst; ./OpenBOR; kill \$\$)
+sleep 0.5; sudo pkill -f joy2key
 source "\$JOY2KEY_SCRIPT"
 scriptdir="\$HOME/RetroPie-Setup"
 for file in "\$OPENBOR_ROMDIR/"*.[Pp][Aa][Kk]; do
@@ -59,13 +59,13 @@ for file in "\$OPENBOR_ROMDIR/"*.[Pp][Aa][Kk]; do
   filename="\${file##*/}"; filename="\${filename%.*}"
   darray+=("\$file" "\$filename")
 done
-joy2keyStart; sleep 0.5
 if [[ \${#darray[@]} -gt 0 ]]; then
+    joy2keyStart; sleep 0.2
     cmd=(dialog --backtitle " OpenBOR - The ultimate 2D gaming engine " --title " Module selection list " --no-tags --stdout --menu "Please select a module from list to get launched:" 16 75 16)
     choices=\$("\${cmd[@]}" "\${darray[@]}")
-    [[ \$choices ]] || (joy2keyStop; exit)
+    joy2keyStop; sleep 0.2
+    [[ \$choices ]] || exit  
 fi
-joy2keyStop; sleep 0.5
 "/opt/retropie/supplementary/runcommand/runcommand.sh" 0 _PORT_ "openbor" "\$choices"
 _EOF_
 
