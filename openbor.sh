@@ -50,7 +50,7 @@ function configure_openbor() {
 #!/bin/bash
 readonly JOY2KEY_SCRIPT="\$HOME/RetroPie-Setup/scriptmodules/helpers.sh"
 readonly OPENBOR_ROMDIR="$romdir/ports/$md_id"
-[[ -e \$JOY2KEY_SCRIPT ]] || exit 1
+[[ -e \$JOY2KEY_SCRIPT ]] || ($md_inst/OpenBOR; exit 1)
 sudo pkill -f joy2key
 source "\$JOY2KEY_SCRIPT"
 scriptdir="\$HOME/RetroPie-Setup"
