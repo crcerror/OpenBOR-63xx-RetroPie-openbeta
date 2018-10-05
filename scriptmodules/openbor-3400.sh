@@ -1,0 +1,89 @@
+#!/usr/bin/env bash
+
+# This file is part of The RetroPie Project
+#
+# The RetroPie Project is the legal property of its developers, whose names are
+# too numerous to list here. Please refer to the COPYRIGHT.md file distributed with this source.
+#
+# See the LICENSE.md file at the top-level directory of this distribution and
+# at https://raw.githubusercontent.com/RetroPie/RetroPie-Setup/master/LICENSE.md
+#
+
+rp_module_id="openbor-3400"
+rp_module_desc="OpenBOR - Beat 'em Up Game Engine v3400 (unsupported!)"
+rp_module_help="OpenBOR games need to be extracted to function properly. Place your pak files in $romdir/ports/openbor and then run $rootdir/ports/openbor/extract.sh. When the script is done, your original pak files will be found in $romdir/ports/openbor/originals and can be deleted."
+rp_module_licence="BSD https://raw.githubusercontent.com/darknior/openbor/master/LICENSE"
+rp_module_section="exp"
+rp_module_flags="!mali !x11 !kms"
+
+function strip() {
+    #$1 string name, $2 string length to cut
+    # Set string length to -5 to remove last 5 characters
+    # So openbor-3400 will be installed to openbor
+    echo "${1:0:$2}"
+}
+
+function depends_openbor-3400() {
+    getDepends libsdl1.2-dev libsdl-gfx1.2-dev libogg-dev libvorbisidec-dev libvorbis-dev libpng12-dev zlib1g-dev
+}
+
+function sources_openbor-3400() {
+    gitPullOrClone "$md_build" https://github.com/darknior/openbor.git
+}
+
+function build_openbor-3400() {
+    local params=()
+    ! isPlatform "x11" && params+=(NO_GL=1)
+    make clean
+    make "${params[@]}"
+    cd "$md_build/tools/borpak/"
+    ./build-linux.sh
+    md_ret_require="$md_build/OpenBOR"
+}
+
+function install_openbor-3400() {
+    md_ret_files=(
+       'OpenBOR'
+       'tools/borpak/borpak'
+       'tools/unpack.sh'
+    )
+}
+
+function configure_openbor-3400() {
+    addPort "$md_id" "openbor" "OpenBOR - Beats of Rage Engine (v3400)" "pushd $md_inst; $md_inst/OpenBOR %ROM%; popd"
+
+    md_id="$(strip $md_id -5)"
+    mkRomDir "ports/$md_id"
+
+    cat >"$md_inst/extract.sh" <<_EOF_
+#!/bin/bash
+PORTDIR="$md_inst"
+BORROMDIR="$romdir/ports/$md_id"
+mkdir \$BORROMDIR/original/
+mkdir \$BORROMDIR/original/borpak/
+mv \$BORROMDIR/*.pak \$BORROMDIR/original/
+cp \$PORTDIR/unpack.sh \$BORROMDIR/original/
+cp \$PORTDIR/borpak \$BORROMDIR/original/borpak/
+cd \$BORROMDIR/original/
+for i in *.pak
+do
+  CURRENTFILE=\`basename "\$i" .pak\`
+  ./unpack.sh "\$i"
+  mkdir "\$CURRENTFILE"
+  mv data/ "\$CURRENTFILE"/
+  mv "\$CURRENTFILE"/ ../
+done
+ 
+echo "Your games are extracted and ready to be played. Your originals are stored safely in $BORROMDIR/original/ but they won't be needed anymore. Everything within it can be deleted."
+_EOF_
+    chmod +x "$md_inst/extract.sh"
+
+    local dir
+    for dir in ScreenShots Saves; do
+        mkUserDir "$md_conf_root/$md_id/$dir"
+        ln -snf "$md_conf_root/$md_id/$dir" "$md_inst/$dir"
+    done
+
+    ln -snf "$romdir/ports/$md_id" "$md_inst/Paks"
+    ln -snf "/dev/shm" "$md_inst/Logs"
+}
