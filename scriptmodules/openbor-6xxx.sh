@@ -78,6 +78,10 @@ fi
 "/opt/retropie/supplementary/runcommand/runcommand.sh" 0 _PORT_ "openbor" "\$choices"
 _EOF_
 
+#Correcting file owner and attributes
+chown $(logname):$(logname) "$romdir/ports/OpenBOR - Module Selection Script.sh"
+chmod +x "$romdir/ports/OpenBOR - Module Selection Script.sh"
+
     local dir
     for dir in ScreenShots Saves; do
         mkUserDir "$md_conf_root/$md_id/$dir"
