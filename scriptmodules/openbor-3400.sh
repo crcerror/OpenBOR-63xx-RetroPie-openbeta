@@ -11,8 +11,8 @@
 
 rp_module_id="openbor-3400"
 rp_module_desc="OpenBOR - Beat 'em Up Game Engine v3400 (unsupported!)"
-rp_module_help="OpenBOR games need to be extracted to function properly. Place your pak files in $romdir/ports/openbor and then run $rootdir/ports/openbor/extract.sh. When the script is done, your original pak files will be found in $romdir/ports/openbor/originals and can be deleted."
-rp_module_licence="BSD https://raw.githubusercontent.com/darknior/openbor/master/LICENSE"
+rp_module_help="Place your pak files in $romdir/ports/openbor and run OpenBOR - Beats of Rage Engine script. You can also setup a own BOR-system into ES. This version is patched to call PAK files via CLI."
+rp_module_licence="BSD https://raw.githubusercontent.com/crcerror/OpenBOR-3400/master/LICENSE"
 rp_module_section="exp"
 rp_module_flags="!mali !x11 !kms"
 
@@ -28,14 +28,13 @@ function depends_openbor-3400() {
 }
 
 function sources_openbor-3400() {
-    gitPullOrClone "$md_build" https://github.com/darknior/openbor.git
+    gitPullOrClone "$md_build" https://github.com/crcerror/OpenBOR-3400.git
 }
 
 function build_openbor-3400() {
     local params=()
-    ! isPlatform "x11" && params+=(NO_GL=1)
     make clean
-    make "${params[@]}"
+    make
     cd "$md_build/tools/borpak/"
     ./build-linux.sh
     md_ret_require="$md_build/OpenBOR"
@@ -54,28 +53,6 @@ function configure_openbor-3400() {
 
     md_id="$(strip $md_id -5)"
     mkRomDir "ports/$md_id"
-
-    cat >"$md_inst/extract.sh" <<_EOF_
-#!/bin/bash
-PORTDIR="$md_inst"
-BORROMDIR="$romdir/ports/$md_id"
-mkdir \$BORROMDIR/original/
-mkdir \$BORROMDIR/original/borpak/
-mv \$BORROMDIR/*.pak \$BORROMDIR/original/
-cp \$PORTDIR/unpack.sh \$BORROMDIR/original/
-cp \$PORTDIR/borpak \$BORROMDIR/original/borpak/
-cd \$BORROMDIR/original/
-for i in *.pak
-do
-  CURRENTFILE=\`basename "\$i" .pak\`
-  ./unpack.sh "\$i"
-  mkdir "\$CURRENTFILE"
-  mv data/ "\$CURRENTFILE"/
-  mv "\$CURRENTFILE"/ ../
-done
- 
-echo "Your games are extracted and ready to be played. Your originals are stored safely in $BORROMDIR/original/ but they won't be needed anymore. Everything within it can be deleted."
-_EOF_
     chmod +x "$md_inst/extract.sh"
 
     local dir
