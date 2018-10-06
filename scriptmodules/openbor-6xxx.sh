@@ -50,7 +50,7 @@ function install_openbor-6xxx() {
 }
 
 function configure_openbor-6xxx() {
-    addPort "$md_id" "openbor" "OpenBOR - Beats of Rage Engine (v6xxx)" "pushd $md_inst; $md_inst/OpenBOR %ROM%; popd"
+    addPort "$md_id" "openbor" "OpenBOR - Beats of Rage Engine" "pushd $md_inst; $md_inst/OpenBOR %ROM%; popd"
 
     md_id="$(strip $md_id -5)"
     mkRomDir "ports/$md_id"
