@@ -35,16 +35,16 @@ function build_openbor-3400() {
     local params=()
     make clean
     make
-    cd "$md_build/tools/borpak/"
-    ./build-linux.sh
+    # cd "$md_build/tools/borpak/"
+    # ./build-linux.sh
     md_ret_require="$md_build/OpenBOR"
 }
 
 function install_openbor-3400() {
     md_ret_files=(
        'OpenBOR'
-       'tools/borpak/borpak'
-       'tools/unpack.sh'
+       # 'tools/borpak/borpak'
+       # 'tools/unpack.sh'
     )
 }
 
