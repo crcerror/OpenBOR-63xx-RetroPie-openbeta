@@ -24,7 +24,7 @@ function strip() {
 }
 
 function depends_openbor-3400() {
-    getDepends libsdl1.2-dev libsdl-gfx1.2-dev libogg-dev libvorbisidec-dev libvorbis-dev libpng12-dev zlib1g-dev
+    getDepends libsdl1.2-dev libsdl-gfx1.2-dev libogg-dev libvorbisidec-dev libvorbis-dev libpng-dev zlib1g-dev
 }
 
 function sources_openbor-3400() {
@@ -32,19 +32,14 @@ function sources_openbor-3400() {
 }
 
 function build_openbor-3400() {
-    local params=()
     make clean
     make
-    # cd "$md_build/tools/borpak/"
-    # ./build-linux.sh
     md_ret_require="$md_build/OpenBOR"
 }
 
 function install_openbor-3400() {
     md_ret_files=(
        'OpenBOR'
-       # 'tools/borpak/borpak'
-       # 'tools/unpack.sh'
     )
 }
 
