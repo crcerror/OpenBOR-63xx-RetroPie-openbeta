@@ -26,6 +26,29 @@ echo; echo -e "\t\tUnzipping file with overwrite option"; drawline
 unzip -o "openbor_${VERSION}.zip"
 drawline; sleep 2
 
+# Try to make binary file executable
+echo; echo -e "\t\tCheck file existance and file state of OpenBOR binary"; drawline
+if [[ -e ./openbor_openbeta/OpenBOR ]]; then
+   echo "Found correct binary in archive"
+   echo "Proceed with install"
+
+    if [[ -x ./openbor_openbeta/OpenBOR ]]; then
+       echo "Attribute is setted to executable"
+       echo "Everything is all right"
+   else
+       echo "Attribute is setted to wrong"
+       echo "I change attribute to executable now!"
+       chmod +x ./openbor_openbeta/OpenBOR
+   fi
+
+else
+    echo "Can't find file OpenBOR"
+    echo "This is nasty -- Aborting now!"
+    drawline; sleep 2
+    exit
+fi
+drawline; sleep 2
+
 # Try to link to PAK-files
 echo; echo -e "\t\tLink to PAK files"; drawline
 if [[ -d ./openbor_openbeta/Paks ]]; then
