@@ -58,4 +58,8 @@ After downloading put them to your ROM directory ports/openbor
 
 You can participate into thread OpenBOR modules we like and add your favourtite modules there.
 
+# How to compile GL4ES if you need
+
+If you don't have a raspberry based system you need to compile libGL.so.1 and place next to the OpenBOR binary executable. The GL4ES wrapper can be found at https://github.com/ptitSeb/gl4es and some flags to compile on your system can be found in USAGE.md file. Additionally COMPILE.md contains the commands to compile depending your system.
+
 https://retropie.org.uk/forum/topic/19326/openbor-6xxx-openbeta-testphase
