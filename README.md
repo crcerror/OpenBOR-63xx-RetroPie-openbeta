@@ -33,11 +33,17 @@ Enter SSH terminal and type follwing text to choose following versions:
 
 
 Go to ES and select Configuration (the RetroJoy), select RetroPie Setup or just type sudo ~/RetroPie-Setup/retropie_setup.sh
+
 On blue dialog, navigate to P Manage packages
+
 Select exp Manage experimental packages
+
 Run down the list, there select the fitting opbenbor (it's is a number around 300+)
+
 Select S Install from source
+
 Restart ES!!
+
 Now go to ports menu and start the OpenBOR-script!
 
 Enjoy
