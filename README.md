@@ -14,6 +14,7 @@ Added libGL.so.1 for raspberry pi zero setups
 To install make following:
 
 Enter SSH terminal and type follwing text to choose following versions:
+
 1.1 To restore original OpenBOR script:
     
     wget http://raw.githubusercontent.com/crcerror/OpenBOR-63xx-RetroPie-openbeta/master/scriptmodules/openbor.sh -O /home/pi/RetroPie-Setup/scriptmodules/ports/openbor.sh
