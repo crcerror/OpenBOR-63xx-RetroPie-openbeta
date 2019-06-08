@@ -11,7 +11,7 @@ based on [OpenBOR Relaease 01.05.2019](https://github.com/DCurrent/openbor/tree/
 09.06.2019
 Added libGL.so.1 for raspberry pi zero setups
 
-To install make following:
+# To install make following:
 
 Enter SSH terminal and type follwing text to choose following versions:
 
@@ -47,5 +47,15 @@ Restart ES!!
 Now go to ports menu and start the OpenBOR-script!
 
 Enjoy
+
+# Obtain PAK files
+
+Go to the official forum CHRONOCRASH and get newest PAK version directly from the several authors.
+
+Use one of the several gamedatabase like here to obtain some modules.
+
+After downloading put them to your ROM directory ports/openbor
+
+You can participate into thread OpenBOR modules we like and add your favourtite modules there.
 
 https://retropie.org.uk/forum/topic/19326/openbor-6xxx-openbeta-testphase
