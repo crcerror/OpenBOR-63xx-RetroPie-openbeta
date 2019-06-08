@@ -38,8 +38,7 @@ function build_openbor-6xxx() {
     patch -p0 -i ./patch/latest_build.diff
     make "${params[@]}"
     md_ret_require="$md_build/OpenBOR"
-    wget -q --show-progress "http://raw.githubusercontent.com/crcerror/OpenBOR-63xx-RetroPie-openbeta/master/libGL-binary/libGL.so.1.gz"
-    gunzip -f libGL.so.1.gz
+    wget -q --show-progress "http://raw.githubusercontent.com/julenvitoria/OpenBOR-63xx-RetroPie-openbeta/master/libGL-binary/libGL-for-RPi-3/libGL.so.1"
 }
 
 function install_openbor-6xxx() {
