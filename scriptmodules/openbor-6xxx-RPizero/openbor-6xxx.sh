@@ -28,7 +28,7 @@ function depends_openbor-6xxx() {
 }
 
 function sources_openbor-6xxx() {
-    gitPullOrClone "$md_build" https://github.com/crcerror/OpenBOR-Raspberry.git
+    gitPullOrClone "$md_build" https://github.com/julenvitoria/OpenBOR-Raspberry
 }
 
 function build_openbor-6xxx() {
