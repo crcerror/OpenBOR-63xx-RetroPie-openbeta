@@ -9,8 +9,8 @@
 # at https://raw.githubusercontent.com/RetroPie/RetroPie-Setup/master/LICENSE.md
 #
 
-rp_module_id="openbor-6xxx"
-rp_module_desc="OpenBOR - Beat 'em Up Game Engine v6510-dev (official!)"
+rp_module_id="openbor-6xxxRPi4"
+rp_module_desc="OpenBOR - Beat 'em Up Game Engine v6510-dev"
 rp_module_section="exp"
 rp_module_flags="!mali !x11"
 
@@ -21,32 +21,32 @@ function strip() {
     echo "${1:0:$2}"
 }
 
-function depends_openbor-6xxx() {
+function depends_openbor-6xxxRPi4() {
     getDepends libsdl2-gfx-dev libvorbisidec-dev libvpx-dev libogg-dev libsdl2-gfx-1.0-0 libvorbisidec1
 }
 
-function sources_openbor-6xxx() {
+function sources_openbor-6xxxRPi4() {
     gitPullOrClone "$md_build" https://github.com/julenvitoria/OpenBOR-Raspberry
 }
 
-function build_openbor-6xxx() {
+function build_openbor-6xxxRPi4() {
     local params=()
     ! isPlatform "x11" && params+=(BUILD_PANDORA=1)
     make clean-all BUILD_PANDORA=1
     patch -p0 -i ./patch/latest_build.diff
     make "${params[@]}"
     md_ret_require="$md_build/OpenBOR"
-    wget -q --show-progress "http://raw.githubusercontent.com/julenvitoria/OpenBOR-63xx-RetroPie-openbeta/master/libGL-binary/libGL-for-RPi-3/libGL.so.1"
+    wget -q --show-progress "http://raw.githubusercontent.com/julenvitoria/OpenBOR-63xx-RetroPie-openbeta/master/libGL-binary/libGL-for-RPi-4/libGL.so.1"
 }
 
-function install_openbor-6xxx() {
+function install_openbor-6xxxRPi4() {
     md_ret_files=(
        'OpenBOR'
        'libGL.so.1'
     )
 }
 
-function configure_openbor-6xxx() {
+function configure_openbor-6xxxRPi4() {
     addPort "$md_id" "openbor" "OpenBOR - Beats of Rage Engine" "pushd $md_inst; $md_inst/OpenBOR %ROM%; popd"
 
     md_id="$(strip $md_id -5)"
