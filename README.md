@@ -23,13 +23,17 @@ Enter SSH terminal and type follwing text to choose following versions:
 
     wget http://raw.githubusercontent.com/crcerror/OpenBOR-63xx-RetroPie-openbeta/master/scriptmodules/openbor-3400.sh -O /home/pi/RetroPie-Setup/scriptmodules/ports/openbor-3400.sh
 
-1.3.1 For newest branch 6xxx for RPi 3 and up:
+1.3.1 For newest branch 6xxx for RPi 4 and up:
 
-    wget http://raw.githubusercontent.com/julenvitoria/OpenBOR-63xx-RetroPie-openbeta/master/scriptmodules/openbor-6xxx-RPi3/openbor-6xxx.sh -O- | tr -d '\r' > /home/pi/RetroPie-Setup/scriptmodules/ports/openbor-6xxx.sh
+    wget http://raw.githubusercontent.com/julenvitoria/OpenBOR-63xx-RetroPie-openbeta/master/scriptmodules/openbor-6xxx-RPi3/openbor-v6510-RPi4 -O- | tr -d '\r' > /home/pi/RetroPie-Setup/scriptmodules/ports/openbor-v6510-RPi4.sh
 
-1.3.1 For newest branch 6xxx for RPi 0/1:
+1.3.2 For newest branch 6xxx for RPi 3 and up:
 
-    wget http://raw.githubusercontent.com/julenvitoria/OpenBOR-63xx-RetroPie-openbeta/master/scriptmodules/openbor-6xxx-RPizero/openbor-6xxx.sh -O- | tr -d '\r' > /home/pi/RetroPie-Setup/scriptmodules/ports/openbor-6xxx.sh
+    wget http://raw.githubusercontent.com/julenvitoria/OpenBOR-63xx-RetroPie-openbeta/master/scriptmodules/openbor-6xxx-RPi3/openbor-v6510-RPi3 -O- | tr -d '\r' > /home/pi/RetroPie-Setup/scriptmodules/ports/openbor-v6510-RPi3.sh
+
+1.3.3 For newest branch 6xxx for RPi 0/1:
+
+    wget http://raw.githubusercontent.com/julenvitoria/OpenBOR-63xx-RetroPie-openbeta/master/scriptmodules/openbor-6xxx-RPizero/openbor-v6510-RPi0 -O- | tr -d '\r' > /home/pi/RetroPie-Setup/scriptmodules/ports/openbor-v6510-RPi0.sh
 
 
 Go to ES and select Configuration (the RetroJoy), select RetroPie Setup or just type sudo ~/RetroPie-Setup/retropie_setup.sh
