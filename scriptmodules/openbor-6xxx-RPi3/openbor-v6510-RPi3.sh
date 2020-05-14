@@ -12,7 +12,7 @@
 rp_module_id="openbor-v6510-RPi3"
 rp_module_desc="OpenBOR - Beat 'em Up Game Engine v6510-dev (official!)"
 rp_module_help="Place your pak files in $romdir/ports/openbor and then run $romdir/ports/OpenBOR.sh from ports section."
-rp_module_licence="BSD https://raw.githubusercontent.com/julenvitoria/OpenBOR-Raspberry/master/LICENSE"
+rp_module_licence="BSD https://raw.githubusercontent.com/crcerror/OpenBOR-Raspberry/master/LICENSE"
 rp_module_section="exp"
 rp_module_flags="!mali !x11 !kms"
 
@@ -28,7 +28,7 @@ function depends_openbor-v6510-RPi3() {
 }
 
 function sources_openbor-v6510-RPi3() {
-    gitPullOrClone "$md_build" https://github.com/julenvitoria/OpenBOR-Raspberry
+    gitPullOrClone "$md_build" https://github.com/crcerror/OpenBOR-Raspberry.git
 }
 
 function build_openbor-v6510-RPi3() {
@@ -38,7 +38,7 @@ function build_openbor-v6510-RPi3() {
     patch -p0 -i ./patch/latest_build.diff
     make "${params[@]}"
     md_ret_require="$md_build/OpenBOR"
-    wget -q --show-progress "http://raw.githubusercontent.com/julenvitoria/OpenBOR-63xx-RetroPie-openbeta/master/libGL-binary/libGL-for-RPi-3/libGL.so.1"
+    wget -q --show-progress "http://raw.githubusercontent.com/crcerror/OpenBOR-63xx-RetroPie-openbeta/master/libGL-binary/libGL-for-RPi-3/libGL.so.1"
 }
 
 function install_openbor-v6510-RPi3() {
