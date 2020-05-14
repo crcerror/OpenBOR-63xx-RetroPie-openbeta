@@ -12,6 +12,7 @@
 rp_module_id="openbor-v6510-RPi4"
 rp_module_desc="OpenBOR - Beat 'em Up Game Engine v6510-dev (official!)"
 rp_module_help="Place your pak files in $romdir/ports/openbor and then run $romdir/ports/OpenBOR.sh from ports section."
+rp_module_licence="BSD https://raw.githubusercontent.com/crcerror/OpenBOR-Raspberry/master/LICENSE"
 rp_module_section="exp"
 rp_module_flags="!mali !x11"
 
