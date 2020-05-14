@@ -28,7 +28,7 @@ function depends_openbor-v6510-RPi0() {
 }
 
 function sources_openbor-v6510-RPi0() {
-    gitPullOrClone "$md_build" https://github.com/julenvitoria/OpenBOR-Raspberry
+    gitPullOrClone "$md_build" https://github.com/crcerror/OpenBOR-Raspberry.git
 }
 
 function build_openbor-v6510-RPi0() {
@@ -38,7 +38,7 @@ function build_openbor-v6510-RPi0() {
     patch -p0 -i ./patch/latest_build.diff
     make "${params[@]}"
     md_ret_require="$md_build/OpenBOR"
-    wget -q --show-progress "http://raw.githubusercontent.com/julenvitoria/OpenBOR-63xx-RetroPie-openbeta/master/libGL-binary/libGL-for-RPi-zero/libGL.so.1"
+    wget -q --show-progress "http://raw.githubusercontent.com/crcerror/OpenBOR-63xx-RetroPie-openbeta/master/libGL-binary/libGL-for-RPi-zero/libGL.so.1"
 }
 
 function install_openbor-v6510-RPi0() {
