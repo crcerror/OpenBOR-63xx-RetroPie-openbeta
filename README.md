@@ -23,11 +23,11 @@ Enter SSH terminal and type follwing text to choose following versions:
 
     wget http://raw.githubusercontent.com/crcerror/OpenBOR-63xx-RetroPie-openbeta/master/scriptmodules/openbor-3400.sh -O /home/pi/RetroPie-Setup/scriptmodules/ports/openbor-3400.sh
 
-1.3.1 For newest branch 6510 for RPi 4 and up:
+1.3.1 For newest branch 6510 for RPi 4B:
 
     wget https://raw.githubusercontent.com/crcerror/OpenBOR-63xx-RetroPie-openbeta/master/scriptmodules/openbor-6xxx-RPi4/openbor-v6510-RPi4.sh -O- | tr -d '\r' > /home/pi/RetroPie-Setup/scriptmodules/ports/openbor-v6510-RPi4.sh
 
-1.3.2 For newest branch 6510 for RPi 3 and up:
+1.3.2 For newest branch 6510 for RPi 3B/3B+:
 
     wget https://raw.githubusercontent.com/crcerror/OpenBOR-63xx-RetroPie-openbeta/master/scriptmodules/openbor-6xxx-RPi3/openbor-v6510-RPi3.sh -O- | tr -d '\r' > /home/pi/RetroPie-Setup/scriptmodules/ports/openbor-v6510-RPi3.sh
 
