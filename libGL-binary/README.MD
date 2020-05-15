@@ -1,1 +1,1 @@
-Ready compiled libs for OpenBOR
+Ready compiled libs for OpenBOR depending your RPi
